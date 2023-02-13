@@ -1,17 +1,18 @@
-import { adminApp } from "$lib/firebaseAdminExport";
 import { getAuth } from "firebase-admin/auth";
+import type {App} from "firebase-admin/app"
+
 export class FirebaseAdmin {
-    private app;
-    constructor() {
-        this.app = getAuth(adminApp);
+    private auth;
+    constructor(app:App) {
+        this.auth = getAuth(app);
     }
     async validateCredential(token: string) {
-        this.app.verifyIdToken(token)
+        this.auth.verifyIdToken(token)
         return true;
 
     }
     async getUserId(token: string) {
-        const tokenResp = await this.app.verifyIdToken(token)
+        const tokenResp = await this.auth.verifyIdToken(token)
         return tokenResp.uid;
     }
 
