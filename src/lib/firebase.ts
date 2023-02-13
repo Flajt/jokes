@@ -23,5 +23,4 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 export const db = getDatabase(app)
-console.log(JSON.parse(env.FIREBASE_STRING))
 export const adminApp = admin.apps.length === 0 ? admin.initializeApp({credential:admin.credential.cert(JSON.parse(env.FIREBASE_STRING)),databaseURL:"https://joker-f6c88-default-rtdb.firebaseio.com/"}) : admin.app();
