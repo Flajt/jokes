@@ -1,6 +1,5 @@
 import { adminApp } from "$lib/firebaseAdminExport";
-import { getAuth } from "firebase-admin/auth"
-
+import { getAuth } from "firebase-admin/auth";
 export class FirebaseAdmin {
     private app;
     constructor() {

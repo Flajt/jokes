@@ -38,3 +38,4 @@ _output
 # Cypress
 **/.env
 **/cypress.env.json
+.vercel
