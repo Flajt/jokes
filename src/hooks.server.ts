@@ -1,9 +1,6 @@
 // src/hook.server.ts
-import { FirebaseAdmin } from '$lib/logic/firebaseAdmin'
+import { adminWrapper } from '$lib/firebaseAdminExport';
 import type { Handle } from '@sveltejs/kit';
-//Odd way to init firebase-admin sdk
-const adminWrapper = new FirebaseAdmin();
-
 
 export const handle = (async ({ event, resolve }) => {
     if (event.url.pathname.startsWith('/my-jokes')) {
