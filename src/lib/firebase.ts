@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import  * as admin from "firebase-admin";
 import {getAuth} from "firebase/auth"
 import {getDatabase} from "firebase/database"
-import { env } from '$env/dynamic/private';
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,7 +20,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app)
-export const db = getDatabase(app)
-export const adminApp = admin.apps.length === 0 ? admin.initializeApp({credential:admin.credential.cert(JSON.parse(env.FIREBASE_STRING)),databaseURL:"https://joker-f6c88-default-rtdb.firebaseio.com/"}) : admin.app();
+export const fapp = initializeApp(firebaseConfig);
+export const auth = getAuth(fapp)
+export const db = getDatabase(fapp)

@@ -1,11 +1,10 @@
-import { adminApp } from "$lib/firebase";
 import { FirebaseAdmin } from "$lib/logic/firebaseAdmin";
 import { saveJoke } from "$lib/logic/saveJoke";
 import { error } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types"
 import cookie from "cookie";
 import { deleteJoke } from "$lib/logic/deleteJoke";
-const admin = new FirebaseAdmin(adminApp);
+const admin = new FirebaseAdmin();
 export const POST = (async ({request})=>{
     try{
     const json = await request.json();

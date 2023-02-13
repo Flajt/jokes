@@ -1,8 +1,8 @@
 // src/hook.server.ts
 import { FirebaseAdmin } from '$lib/logic/firebaseAdmin'
-import { adminApp } from '$lib/firebase';
 import type { Handle } from '@sveltejs/kit';
-const adminWrapper = new FirebaseAdmin(adminApp);
+//Odd way to init firebase-admin sdk
+const adminWrapper = new FirebaseAdmin();
 
 
 export const handle = (async ({ event, resolve }) => {
@@ -16,7 +16,6 @@ export const handle = (async ({ event, resolve }) => {
                 return await resolve(event)
             }
         }catch(e){
-            console.log(e)
             return Response.redirect(event.url.origin+"/login")
             
         }

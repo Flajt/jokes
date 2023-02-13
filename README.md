@@ -1,3 +1,7 @@
+## Notice
+The code is rather messy, and not very thought out. However it should be enough to show authorization and authentication.
+In theory one could use firebase in `onMount` to handle login and registration. However this always feels akward to do, this is why even the calls which could be done from the frontend, run in the backend.
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

@@ -2,10 +2,9 @@ import { FirebaseAdmin } from "$lib/logic/firebaseAdmin";
 import { getMyJokes } from "$lib/logic/getMyJokes";
 import type { PageServerLoad } from "./$types";
 import {error} from "@sveltejs/kit"
-import { adminApp } from "$lib/firebase";
 export const load = (async (params) => {
     try {
-        const admin = new FirebaseAdmin(adminApp);
+        const admin = new FirebaseAdmin();
         const cookieString = params.cookies.get("idToken") ?? "";
         if (cookieString === "")
             throw error(401,"Invalid login creds")
