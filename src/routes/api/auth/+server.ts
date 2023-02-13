@@ -17,7 +17,7 @@ export const POST = (async ({ request }) => {
             return new Response(null, {
                 status: 302, headers: {
                     location: "/",
-                    "set-cookie": [cookie.serialize("refreshToken", refreshToken, { path:"/",httpOnly: true, secure: env.PROD==="false", maxAge: 60 * 60 * 24 * 30, sameSite: true }), cookie.serialize("idToken", idToken, { path:"/",httpOnly: true, secure: env.PROD==="false", maxAge: 60 * 60 * 24 * 30, sameSite: true })],
+                    "set-cookie": [cookie.serialize("refreshToken", refreshToken, { path:"/",httpOnly: true, secure: env.PROD==="false"? false : true, maxAge: 60 * 60 * 24 * 30, sameSite: true }), cookie.serialize("idToken", idToken, { path:"/",httpOnly: true, secure: env.PROD==="false"? false : true, maxAge: 60 * 60 * 24 * 30, sameSite: true })],
                 }
             });
 
