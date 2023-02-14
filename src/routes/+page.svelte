@@ -1,3 +1,7 @@
+<svelte:head>
+	<meta name="description" content="Jokes for every occasion" />
+</svelte:head>
+
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { onDestroy, onMount } from 'svelte';
@@ -29,7 +33,7 @@
 			observer.observe(footer);
 		}
 	});
-	onDestroy(() => observer ? observer.disconnect() :null);
+	onDestroy(() => (observer ? observer.disconnect() : null));
 </script>
 
 <a href="/my-jokes">Bookmarked Jokes</a>
@@ -52,13 +56,13 @@
 </footer>
 
 <style>
-    a{  
-        margin: 8px;
-        display: inline-flex;
-        justify-content: end;
-        width: 99%;
-        height: 1rem;
-    }
+	a {
+		margin: 8px;
+		display: inline-flex;
+		justify-content: end;
+		width: 99%;
+		height: 1rem;
+	}
 	h1 {
 		width: 100%;
 		text-align: center;
