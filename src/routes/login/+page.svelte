@@ -11,20 +11,27 @@
 			});
 			if (resp.ok) {
 				goto('/my-jokes');
+			}else{
+				alert("Login failed!")
 			}
-		} catch (e) {
-			console.error(e);
+		} catch (e:any) {
+			alert(`Login error: ${e.toString()}`)
+			
 		}
 	}
 	async function register() {
 		try {
-			await fetch('/api/auth', {
+			const resp = await fetch('/api/auth', {
 				method: 'POST',
 				body: JSON.stringify({ email: email, password: password, login: false })
 			});
-			goto('/my-jokes');
-		} catch (e) {
-			console.error(e);
+			if(resp.ok){
+				goto('/my-jokes');
+			}else{
+				alert("Registration failed")
+			}
+		} catch (e:any) {
+			alert(`Register error: ${e.toString()}`)
 		}
 	}
 </script>
@@ -62,14 +69,12 @@
 	}
 	#login-card {
 		border: 1px solid black;
-		width: 50%;
 		margin: 0 auto;
 		min-height: 30vh;
 		max-height: 300px;
-		width: 30vw;
+		width: 300px;
 		margin: 8px;
 		padding: 16px;
-		max-width: 300px;
 	}
 	#login-card p {
 		font-weight: 600;
